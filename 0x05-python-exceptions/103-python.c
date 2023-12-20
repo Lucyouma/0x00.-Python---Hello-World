@@ -1,6 +1,6 @@
 /*
  * File: 103-python.c
- * Auth: Lucy Ouma
+ * Auth: Type Your Name Here
  */
 
 #include <Python.h>
