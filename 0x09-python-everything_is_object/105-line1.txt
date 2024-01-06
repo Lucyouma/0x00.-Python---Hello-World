@@ -1,0 +1,17 @@
+import ctypes
+
+# Define the range of small integers in CPython
+NSMALLPOSINTS = 257  # adjust to 256 for versions below Python 3.8
+NSMALLNEGINTS = 5
+
+# Calculate the number of integer objects in memory
+def count_int_objects():
+    count = sum(
+        1
+        for i in range(-NSMALLNEGINTS, NSMALLPOSINTS)
+        if ctypes.c_long.from_address(id(i)).value == i
+    )
+    return count
+
+# Output the number of int objects before the execution of line 2
+print("Before line 2:", count_int_objects())
