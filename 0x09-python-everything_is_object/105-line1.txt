@@ -1,7 +1,7 @@
 import ctypes
 
 # Define the range of small integers in CPython
-NSMALLPOSINTS = 257  # adjust to 256 for versions below Python 3.8
+NSMALLPOSINTS = 257  # Adjust to 256 for versions below Python 3.8
 NSMALLNEGINTS = 5
 
 # Calculate the number of integer objects in memory
