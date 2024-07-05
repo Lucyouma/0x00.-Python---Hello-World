@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-import urllib.request
-import sys
+"""Shows the X-Request-Id header variable of a URL variable requested.
 
-def fetch_x_request_id(url):
-    with urllib.request.urlopen(url) as response:
-        headers = response.getheaders()
-        for header in headers:
-            if header[0].lower() == 'x-request-id':
-                print(header[1])
-                return
-        print("X-Request-Id not found in the response headers")
+Usage: ./1-hbtn_header.py <URL>
+"""
+import sys
+import urllib.request
+
 
 if __name__ == "__main__":
     url = sys.argv[1]
-    fetch_x_request_id(https://alx-intranet.hbtn.io)
+
+    request = urllib.request.Request(url)
+    with urllib.request.urlopen(request) as response:
+        print(dict(response.headers).get("X-Request-Id"))
